@@ -87,7 +87,3 @@ bin/buildout: bin/python2.6
 
 bin/python2.6:
 	@virtualenv --clear -p python2.6 --no-site-packages --distribute .
-	@bin/easy_install Paste==1.7.4
-	@bin/easy_install PasteDeploy==1.3.3
-	@bin/easy_install PasteScript==1.7.3
-
