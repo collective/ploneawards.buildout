@@ -1,10 +1,13 @@
-default: fast
+default: usage
 
-all: bin/buildout
-	bin/buildout
+usage:
+	@echo "'make devel' or 'make production'"
 
-fast: bin/buildout
-	bin/buildout -N
+devel:
+	bin/buildout -N -c development.cfg
+
+production:
+	bin/buildout -N -c production.cfg
 
 clean:
 	rm -f bin/* .installed.cfg 
