@@ -1,7 +1,7 @@
 Plone Awards
 ============
 
-To run the buildout: 'make'.
+To run the buildout: 'make devel' (or: 'make production').
 
 Steps to set up the site:
 

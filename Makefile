@@ -3,10 +3,10 @@ default: usage
 usage:
 	@echo "'make devel' or 'make production'"
 
-devel:
-	bin/buildout -N -c development.cfg
+devel: bin/buildout
+	bin/buildout -v -c development.cfg
 
-production:
+production: bin/buildout
 	bin/buildout -N -c production.cfg
 
 clean:
@@ -83,10 +83,11 @@ fetch:
 
 ### helper targets ###
 
-bin/buildout: bin/python2.6
-	@wget http://svn.zope.org/repos/main/zc.buildout/trunk/bootstrap/bootstrap.py
-	@bin/python2.6 bootstrap.py
+
+bin/buildout: bin/python2.7
+	@wget http://downloads.buildout.org/1/bootstrap.py
+	@bin/python2.7 bootstrap.py -c development.cfg
 	@rm bootstrap.*
 
-bin/python2.6:
-	@virtualenv --clear -p python2.6 --no-site-packages --distribute .
+bin/python2.7:
+	@virtualenv --clear -p python2.7 --no-setuptools .
